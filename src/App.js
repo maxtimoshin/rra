@@ -1,23 +1,48 @@
-import logo from './logo.svg';
+import React, { useState } from 'react'
 import './App.css';
+import FiltersList from './components/FiltersList';
+import InputsList from './components/InputsList'
+import { useGetProductsQuery, useAddProductMutation, useDeleteProductMutation } from './redux/API/query';
 
-function App() {
+const App = () => {
+  const [count, setCount] = useState('')
+  const [newProduct, setNewProduct] = useState('')
+
+  const { data, isLoading } = useGetProductsQuery(count)
+
+  const [addProduct, { }] = useAddProductMutation()
+  const [deleteProduct, { }] = useDeleteProductMutation()
+
+  const handleAddProduct = async () => {
+    if (newProduct) {
+      await addProduct({
+        "name": newProduct
+      }).unwrap()
+    }
+  }
+
+  const handleDeleteProduct = async (id) => {
+    await deleteProduct(id)
+  }
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <input type="text" value={newProduct} onChange={e => setNewProduct(e.target.value)} />
+      <button onClick={handleAddProduct}>Add New Product</button>
+      <select value={count} onChange={e => setCount(e.target.value)}>
+        <option value="">All</option>
+        <option value="1">1</option>
+        <option value="5">5</option>
+        <option value="10">10</option>
+      </select>
+      <ul>
+        {isLoading ? 'loading...' : data.map(item => (
+          <li key={item.id} onClick={()=> handleDeleteProduct(item.id)}>{item.name}</li>
+        ))}
+      </ul>
+      {/* <InputsList />
+      <FiltersList /> */}
     </div>
   );
 }
