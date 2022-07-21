@@ -15,9 +15,14 @@ const Cart = () => {
         <>
             <ul>
                 { cartProducts.length !== 0? cartProducts.map(product => (
-                    <li key={product.id}>{product.title}<button onClick={() => deleteHandler(product.id) }>delete</button></li>
+                    <li key={product.id}>{product.title}| {product.price}<button onClick={() => deleteHandler(product.id) }>delete</button></li>
                 )) : 'Cart is empty'}
             </ul>
+            <div className="sum">
+                {cartProducts.length !==0 ? cartProducts.reduce((acc,item)=>(
+                     acc += item.price
+                ),0): 0}
+            </div>
             <button onClick={()=> clearCartHandler()}>Clear Cart</button>
         </>
     );

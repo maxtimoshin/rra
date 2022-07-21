@@ -5,6 +5,7 @@ import { addToCart } from '../../redux/Slices/cartSlice';
 import { useSelector, useDispatch } from 'react-redux'
 import { useGetProductsQuery, useAddProductMutation, useDeleteProductMutation } from '../../redux/API/query';
 import Cart from '../../components/Cart';
+import Header from '../../components/Header';
 
 
 const MainPage = () => {
@@ -15,7 +16,7 @@ const MainPage = () => {
     const { data, isLoading } = useGetProductsQuery(count)
     const dispatch = useDispatch()
 
-    const cartHandler = (id,title,price) => {
+    const cartHandler = (id, title, price) => {
         dispatch(addToCart({
             "title": title,
             "id": id,
@@ -38,24 +39,31 @@ const MainPage = () => {
 
 
     return (
-        <div>
-            <input type="text" value={newProduct} onChange={e => setNewProduct(e.target.value)} />
-            <button onClick={handleAddProduct}>Add New Product</button>
-            <select value={count} onChange={e => setCount(e.target.value)}>
-                <option value="">All</option>
-                <option value="1">1</option>
-                <option value="5">5</option>
-                <option value="10">10</option>
-            </select>
-            <ul>
-                {isLoading ? 'loading...' : data.map(item => (
-                    <li key={item.id} >{item.title}<button onClick={()=> cartHandler(item.id,item.title,item.price)}>Add to Cart</button></li>
-                ))}
-            </ul>
-                <Cart/>
-            {/* <InputsList />
+        <>
+            <Header/>
+            <div className="main">
+                <ul className=''>
+                    {isLoading ? 'loading...' : data.map(item => (
+                        <li key={item.id} >{item.title}<button onClick={() => cartHandler(item.id, item.title, item.price)}>Add to Cart</button></li>
+                    ))}
+                </ul>
+            </div>
+            <div className="footer"></div>
+            <div>
+                <input type="text" value={newProduct} onChange={e => setNewProduct(e.target.value)} />
+                <button onClick={handleAddProduct}>Add New Product</button>
+                <select value={count} onChange={e => setCount(e.target.value)}>
+                    <option value="">All</option>
+                    <option value="1">1</option>
+                    <option value="5">5</option>
+                    <option value="10">10</option>
+                </select>
+
+                <Cart />
+                {/* <InputsList />
         <FiltersList /> */}
-        </div>
+            </div>
+        </>
     );
 }
 
