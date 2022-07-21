@@ -1,52 +1,22 @@
 {
   "products": [
     {
-      "name": "wadd",
+      "name": "Bananas",
+      "price": 1,
+      "image": "google.com",
       "id": 1
     },
     {
-      "name": "wadd",
+      "name": "Pineapple",
+      "price": 1,
+      "image": "google.com",
       "id": 2
     },
     {
-      "name": "wadd",
+      "name": "sex",
+      "price": 1,
+      "image": "google.com",
       "id": 3
-    },
-    {
-      "name": "wadd",
-      "id": 4
-    },
-    {
-      "name": "wadd",
-      "id": 5
-    },
-    {
-      "name": "wadd",
-      "id": 6
-    },
-    {
-      "name": "wadd",
-      "id": 7
-    },
-    {
-      "name": "wadd",
-      "id": 8
-    },
-    {
-      "name": "wadd",
-      "id": 9
-    },
-    {
-      "name": "wadd",
-      "id": 10
-    },
-    {
-      "name": "wadd",
-      "id": 11
-    },
-    {
-      "name": "wadd",
-      "id": 12
     }
   ]
 }

@@ -34,7 +34,7 @@ const InputsList = () => {
             <Input changerHandler={e => { ageChanger(e.target.value) }} userValue={userData.age} placeholder='Age' />
             <Input changerHandler={e => { countryChanger(e.target.value) }} userValue={userData.country} placeholder='Country' />
             <ul className='list'>
-                {users.map((user, id) => <li key={id} className='list-item'>{user.name} {user.age} {user.country}</li>)}
+                {users.map((user, id) => <li key={id} className='list-item'>{user.title} {user.age} {user.country}</li>)}
             </ul>
             <button
                 onClick={() => {

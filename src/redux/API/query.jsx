@@ -3,10 +3,10 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 export const goodsApi = createApi({
     reducerPath: 'goodsApi',
     tagTypes: ['Products'],
-    baseQuery: fetchBaseQuery({ baseUrl: 'http://localhost:3001/' }),
+    baseQuery: fetchBaseQuery({ baseUrl: 'https://fakestoreapi.com/' }),
     endpoints: (builder) => ({
         getProducts: builder.query({
-            query: (limit = '') => `products${limit && `?_limit=${limit}`}`,
+            query: (limit = '') => `products${limit && `?limit=${limit}`}`,
             providesTags: (result) =>
                 result
                     ? [
@@ -14,6 +14,7 @@ export const goodsApi = createApi({
                         { id: 'LIST', type: 'Products' },
                     ]
                     : [{ id: 'LIST', type: 'Products' }],
+                    
         }),
         addProduct: builder.mutation({
             query: (body) => ({
