@@ -14,7 +14,7 @@ export const goodsApi = createApi({
                         { id: 'LIST', type: 'Products' },
                     ]
                     : [{ id: 'LIST', type: 'Products' }],
-                    
+
         }),
         addProduct: builder.mutation({
             query: (body) => ({
