@@ -18,7 +18,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "dev" : "concurrently \"npm run server\" \"npm run start\"",
+    "dev": "concurrently \"npm run server\" \"npm run start\"",
     "server": "json-server -w src/db.json -p 3001",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -44,6 +44,7 @@
   },
   "devDependencies": {
     "concurrently": "^7.3.0",
-    "json-server": "^0.17.0"
+    "json-server": "^0.17.0",
+    "react-rating-stars-component": "^2.2.0"
   }
 }

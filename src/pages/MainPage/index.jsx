@@ -6,7 +6,9 @@ import { useSelector, useDispatch } from 'react-redux'
 import { useGetProductsQuery, useAddProductMutation, useDeleteProductMutation } from '../../redux/API/query';
 import Cart from '../../components/Cart';
 import Header from '../../components/Header';
+import ReactStars from "react-rating-stars-component";
 
+import './style.css'
 
 const MainPage = () => {
 
@@ -37,16 +39,38 @@ const MainPage = () => {
         }
     }
 
+    const [rating , setRating] = useState()
+    const ratingChanged = (newRating) => {
+        setRating(newRating)
+    };
+
 
     return (
         <>
-            <Header/>
+            <Header />
             <div className="main">
-                <ul className=''>
-                    {isLoading ? 'loading...' : data.map(item => (
-                        <li key={item.id} >{item.title}<button onClick={() => cartHandler(item.id, item.title, item.price)}>Add to Cart</button></li>
-                    ))}
-                </ul>
+                <div className='products'>
+                    <ul className="list-items">
+                        {isLoading ? 'loading...' : data.map(item => (
+                            <li key={item.id} className="list-item">
+                                <div className="item-image-block">
+                                    <img className='item-image' src={item.image} />
+                                </div>
+                                <div className="item-title">{item.title}</div>
+                                <div className="item-rating">
+                                <ReactStars
+                                    count={5}
+                                    onChange={ratingChanged}
+                                    size={35}
+                                    activeColor="#ffd700"
+                                    value={+rating || +item.rating.rate.toFixed(0)}
+                                />
+                                </div>
+                                <button className="add-to-cart-button" onClick={() => cartHandler(item.id, item.title, item.price)}>Add to Cart</button>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
             </div>
             <div className="footer"></div>
             <div>

@@ -5,7 +5,7 @@ import Cart from "../Cart";
 const Header = () => {
     return (
         <div className="header">
-            <div className="logo">Logo</div>
+            <div className="logo"></div>
             <nav className="nav">
                 <ul>
                     <li><a href="">Home</a></li>
