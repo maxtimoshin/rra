@@ -136,3 +136,16 @@
     background-color:#fff;
     color:#000;
 }
+
+.item-counter {
+    display: flex;
+    align-items: center;
+    gap:10px;
+}
+
+.item-counter button {
+    cursor:pointer;
+    border:1px solid #000;
+    background-color: transparent;
+    
+}
