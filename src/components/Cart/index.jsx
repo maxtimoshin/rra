@@ -21,7 +21,7 @@ const Cart = () => {
         <>
             <div className="cart">
                 <div className="cart-icon" onClick={() => { cartHandler() }}></div>
-                <div className={cartIsOpen ? 'cart-bar visible' : 'cart-bar'}>
+                <div className={cartIsOpen ? 'cart-bar visible' : 'cart-bar hide-cart-bar'}>
                     <ul className={cartProducts.length > 5 ? 'cart-items-list cart-scroll' : 'cart-items-list'}>
                         <CartItem/>
                     </ul>
