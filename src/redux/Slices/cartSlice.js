@@ -1,4 +1,4 @@
-import { createSlice} from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
     cartProducts: []
@@ -8,34 +8,33 @@ export const cartSlice = createSlice({
     name: 'cart',
     initialState,
     reducers: {
-        addToCart: (state, product) => {
+        addToCart: (state, action) => {
             if (state.cartProducts.length > 0) {
-                let currentItem = state.cartProducts.find(item => item.id === product.payload.id)
+                let currentItem = state.cartProducts.find(item => item.id === action.payload.id)
                 if (currentItem) {
-                    currentItem.quantity > 9 ? currentItem.quantity = 10 : currentItem.quantity ++        
+                    currentItem.quantity > 9 ? currentItem.quantity = 10 : currentItem.quantity++
                 } else {
-                    state.cartProducts.push(product.payload)
+                    state.cartProducts.push(action.payload)
                 }
             } else {
-                state.cartProducts.push(product.payload)
+                state.cartProducts.push(action.payload)
             }
         },
         clearCart: (state) => {
             state.cartProducts.length = 0
         },
-        deleteProductFromCart: (state, id) => {
-            console.log(id)
-            state.cartProducts = state.cartProducts.filter(e => e.id !== id.payload)
+        deleteProductFromCart: (state, action) => {
+            state.cartProducts = state.cartProducts.filter(e => e.id !== action.payload)
         },
-        addQuantity: (state, id) => {
-            let currentItem = state.cartProducts.find(product => product.id === id.payload)
-            currentItem.quantity > 9 ? currentItem.quantity = 10 : currentItem.quantity ++
+        addQuantity: (state, action) => {
+            let currentItem = state.cartProducts.find(product => product.id === action.payload)
+            currentItem.quantity > 9 ? currentItem.quantity = 10 : currentItem.quantity++
         },
-        decreaseQuantity: (state, id) => {
-            let currentItem = state.cartProducts.find(product => product.id === id.payload)
+        decreaseQuantity: (state, action) => {
+            let currentItem = state.cartProducts.find(product => product.id === action.payload)
             if (currentItem.quantity <= 1) {
                 currentItem.quantity = 1
-                state.cartProducts = state.cartProducts.filter(e => e.id !== id.payload)
+                state.cartProducts = state.cartProducts.filter(e => e.id !== action.payload)
             } else {
                 currentItem.quantity--
             }

@@ -1,20 +1,22 @@
 import React, { useState, useEffect } from "react";
 import ReactStars from "react-rating-stars-component";
+import { Link } from "react-router-dom";
 import { addToCart } from '../../redux/Slices/cartSlice';
 import { useDispatch } from 'react-redux'
 import './style.css'
 import AOS from "aos";
 import "aos/dist/aos.css";
+import {IProductProps} from "./types"
 
-const ProductItem = ({ item }) => {
 
+const ProductItem = ({ item }: IProductProps) => {
     useEffect(() => {
         AOS.init()
         AOS.refresh();
-      }, []);
+    }, []);
 
     const dispatch = useDispatch()
-    const cartHandler = (id, title, price, image) => {
+    const cartHandler = (id: number, title: string, price: number, image: string) => {
         dispatch(addToCart({
             "title": title,
             "id": id,
@@ -25,14 +27,14 @@ const ProductItem = ({ item }) => {
     }
 
     const [rating, setRating] = useState()
-    const ratingChanged = (newRating) => {
+    const ratingChanged = (newRating: React.SetStateAction<undefined>) => {
         setRating(newRating)
     }
     return (
-        <li className="list-item" data-aos="fade-up">
-            <div className="item-image-block">
+        <li className="list-item" >
+            <Link to={`/products/${item.id}`} className="item-image-block">
                 <img className='item-image' alt="item" src={item.image} />
-            </div>
+            </Link>
             <div className="item-title">{item.title}</div>
             <div className="item-rating">
                 <ReactStars
@@ -40,7 +42,7 @@ const ProductItem = ({ item }) => {
                     onChange={ratingChanged}
                     size={30}
                     activeColor="#ffd700"
-                    value={+rating || +item.rating.rate.toFixed(0)}
+                    value={rating ? +rating : +item.rating.rate.toFixed(0)}
                 />
             </div>
             <div className="item-price">

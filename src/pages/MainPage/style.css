@@ -29,7 +29,7 @@
     }
 }
 
-@media (max-width:420px) {
+@media (max-width:640px) {
     .list-items {
         grid-template-columns: repeat(1, 1fr);
     }

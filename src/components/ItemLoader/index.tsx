@@ -2,7 +2,7 @@ import ContentLoader from "react-content-loader"
 import React from 'react'
 import './style.css'
 
-const ItemLoader = (props) => {
+const ItemLoader: React.FC = (props) => {
     return (
         <ContentLoader
             className="card-loader"

@@ -8,6 +8,7 @@ import { BrowserRouter, Routes, Route, } from 'react-router-dom';
 import AboutUs from './pages/AboutUs';
 import Benefits from './pages/Benefits';
 import Contacts from './pages/Contacts';
+import SingleProduct from './pages/SingleProduct';
 import Header from './components/Header';
 
 
@@ -21,6 +22,7 @@ root.render(
         <Route path="/about-us" element={<AboutUs/>}/>
         <Route path="/benefits" element={<Benefits/>}/>
         <Route path="/contacts" element={<Contacts/>}/>
+        <Route path="/products/:productId" element={<SingleProduct/>}/>
         <Route path="*" element={
           <>
           <Header/>

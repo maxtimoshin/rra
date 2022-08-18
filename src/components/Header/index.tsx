@@ -3,7 +3,7 @@ import './style.css'
 import Cart from "../Cart";
 import { Link } from "react-router-dom";
 
-const Header = () => {
+const Header: React.FC = () => {
     return (
         <div className="header">
             <div className="logo"></div>

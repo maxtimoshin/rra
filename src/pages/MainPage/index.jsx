@@ -1,8 +1,6 @@
 import React, { useState } from 'react'
 import { useGetProductsQuery } from '../../redux/API/query';
-
 import ItemLoader from '../../components/ItemLoader';
-
 import './style.css'
 import ProductItem from '../../components/ProductItem';
 

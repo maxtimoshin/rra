@@ -13,10 +13,6 @@
     padding:0 20px;
 }
 
-.item-rating {
-    flex: 1;
-    align-self: center;
-}
 
 .item-image-block {
     padding: 20px;
@@ -46,6 +42,7 @@
 }
 
 .item-rating {
+    align-self: center;
     width: 100%;
     display: flex;
     justify-content: center;

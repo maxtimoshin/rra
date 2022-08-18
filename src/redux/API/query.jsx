@@ -34,5 +34,5 @@ export const goodsApi = createApi({
     })
 })
 
-export const { useGetProductsQuery, useAddProductMutation, useDeleteProductMutation, useSortProductsQuery } = goodsApi
+export const { useGetProductsQuery, useAddProductMutation, useDeleteProductMutation } = goodsApi
 
