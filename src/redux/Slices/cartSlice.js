@@ -10,7 +10,7 @@ export const cartSlice = createSlice({
     reducers: {
         addToCart: (state, action) => {
             if (state.cartProducts.length > 0) {
-                let currentItem = state.cartProducts.find(item => item.id === action.payload.id)
+                let currentItem = state.cartProducts.find((item) => item.id === action.payload.id)
                 if (currentItem) {
                     currentItem.quantity > 9 ? currentItem.quantity = 10 : currentItem.quantity++
                 } else {

@@ -33,7 +33,7 @@ const ProductItem = ({ item }: IProductProps) => {
     return (
         <li className="list-item" >
             <Link to={`/products/${item.id}`} className="item-image-block">
-                <img className='item-image' alt="item" src={item.image} />
+                {/* <img className='item-image' alt="item" src={item.image} /> */}
             </Link>
             <div className="item-title">{item.title}</div>
             <div className="item-rating">

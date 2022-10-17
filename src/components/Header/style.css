@@ -15,19 +15,22 @@
     margin-right:50px;
 }
 
-.nav ul {
+.nav ul,
+.login-nav {
     display: flex;
     list-style: none;
     gap:20px;
 }
 
-.nav ul li a { 
+.nav ul li a,
+.login-nav li a { 
     position: relative;
     text-decoration: none;
     color:#000;
 }
 
-.nav ul li a::before {
+.nav ul li a::before,
+.login-nav li a::before {
     position: absolute;
     content:"";
     height: 1px;
@@ -38,7 +41,8 @@
     transition: all 0.3s;
 }
 
-.nav ul li a:hover::before{
+.nav ul li a:hover::before,
+.login-nav li a:hover::before {
     width:100%;
 }
 

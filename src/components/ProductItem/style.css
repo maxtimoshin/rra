@@ -31,7 +31,7 @@
     background: #000;
     border: 1px solid #000;
     color: #fff;
-    height: 40px;
+    padding:10px 0;
     transition: all 0.3s;
     cursor: pointer;
 }

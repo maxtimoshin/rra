@@ -1,22 +1,24 @@
 {
-  "products": [
+  "users": [
     {
-      "name": "Bananas",
-      "price": 1,
-      "image": "google.com",
-      "id": 1
+      "id": 229365,
+      "login": "sexylogin",
+      "password": "secypass"
     },
     {
-      "name": "Pineapple",
-      "price": 1,
-      "image": "google.com",
-      "id": 2
+      "id": "85fe2b94-b29b-21b6-3c4f-980b523c787d",
+      "login": "GEN",
+      "password": "122222"
     },
     {
-      "name": "sex",
-      "price": 1,
-      "image": "google.com",
-      "id": 3
+      "id": "db25fff3-c56b-5862-cb1d-65fc6ab9fdaf",
+      "login": "testgenerator",
+      "password": "123123"
+    },
+    {
+      "id": "2a2ad941-af59-47b7-e512-4a1fd5881b1d",
+      "login": "sexyass",
+      "password": "sexyssss"
     }
   ]
 }

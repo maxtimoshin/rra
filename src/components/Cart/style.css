@@ -26,6 +26,8 @@
     overflow: hidden;
     opacity: 0;
     transition: all 0.3s;
+    visibility:hidden;
+    z-index: 1;
 }
 
 .cart-bar.visible {
@@ -34,13 +36,14 @@
     overflow: visible;
     border: 1px solid rgb(229, 229, 229);
     opacity: 1;
+    visibility: visible;
     /* display: flex;
     animation: cartpop 0.5s; */
 
 }
 
 /* .hide-cart-bar {
-    animation: carthide 0.5s;
+    visibility: hidden;
 } */
 
 /* @keyframes carthide {

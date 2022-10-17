@@ -2,8 +2,10 @@
   "name": "react-redux-app",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "dependencies": {
     "@apollo/client": "^3.6.9",
+    "@auth0/auth0-react": "^1.11.0",
     "@reduxjs/toolkit": "^1.8.2",
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.3.0",
@@ -11,17 +13,18 @@
     "aos": "^2.3.4",
     "apollo": "^2.34.0",
     "graphql": "^16.5.0",
+    "node-fetch": "^3.2.10",
     "react": "^18.2.0",
     "react-content-loader": "^6.2.0",
     "react-dom": "^18.2.0",
+    "react-hook-form": "^7.34.2",
     "react-redux": "^8.0.2",
     "react-router-dom": "^6.3.0",
-    "react-scripts": "^2.1.3",
-    "web-vitals": "^2.1.4"
+    "react-scripts": "^2.1.3"
   },
   "scripts": {
     "start": "react-scripts start",
-    "dev": "concurrently \"npm run server\" \"npm run start\"",
+    "dev": "concurrently \"npm run server\" \"npm run start\" \"nodemon server.js\" ",
     "server": "json-server -w src/db.json -p 3001",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -48,7 +51,10 @@
   "devDependencies": {
     "@types/aos": "^3.0.4",
     "concurrently": "^7.3.0",
+    "cors": "^2.8.5",
+    "express": "^4.18.1",
     "json-server": "^0.17.0",
+    "nodemon": "^2.0.20",
     "react-rating-stars-component": "^2.2.0",
     "typescript": "^4.7.4"
   }
