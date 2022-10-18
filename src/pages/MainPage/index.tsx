@@ -7,7 +7,7 @@ import ProductItem from '../../components/ProductItem';
 const MainPage = () => {
     const [sortType, setSortType] = useState('desc')
 
-    const { data, isLoading } = useGetProductsQuery()
+    const { data, isLoading } = useGetProductsQuery([])
 
 
     const sortHandler = (a, b) => {

@@ -9,3 +9,10 @@ interface IItem {
 export interface IProductProps {
     item: IItem
 }
+
+export interface ICardProps {
+    id: number;
+    title: string;
+    image: string;
+    price: number;
+}

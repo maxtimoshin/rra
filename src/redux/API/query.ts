@@ -5,12 +5,12 @@ export const goodsApi = createApi({
     tagTypes: ['Products'],
     baseQuery: fetchBaseQuery({ baseUrl: 'https://fakestoreapi.com/' }),
     endpoints: (builder) => ({
-        getProducts: builder.query({
+        getProducts: builder.query<any, any>({
             query: (limit = '') => `products${limit && `?limit=${limit}`}`,
             providesTags: (result) =>
                 result
                     ? [
-                        ...result.map(({ id }) => ({ id, type: 'Products' })),
+                        ...result.map(({ id }) => ({ id, type: 'Products' as const })),
                         { id: 'LIST', type: 'Products' },
                     ]
                     : [{ id: 'LIST', type: 'Products' }],

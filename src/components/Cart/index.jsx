@@ -1,14 +1,19 @@
-import React, { useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { clearCart } from '../../redux/Slices/cartSlice';
 import CartItem from '../CartItem';
 import './style.css'
 import EmptyCart from "../../assets/empty-cart.png"
-// import {ICartProductsProps, ISingleProduct} from "./types"
 
 const Cart = () => {
     const cartProducts = useSelector((state) => state.cart.cartProducts)
     const [cartIsOpen, cartToggler] = useState(false)
+    const [cartCounter, setCartCounter] = useState()
+
+    useEffect(() => {
+        setCartCounter(cartProducts.map(e => e.quantity).reduce((prev, product) => prev + product, 0))
+    }, [cartProducts])
+
     const cartHandler = () => {
         cartToggler(cartIsOpen ? false : true)
     }
@@ -21,6 +26,7 @@ const Cart = () => {
     return (
         <>
             <div className="cart">
+                <div className='cart-counter'>{cartCounter}</div>
                 <div className="cart-icon" onClick={() => { cartHandler() }}></div>
                 <div className={cartIsOpen ? 'cart-bar visible' : 'cart-bar hide-cart-bar'}>
                     <ul className={cartProducts.length > 5 ? 'cart-items-list cart-scroll' : 'cart-items-list'}>

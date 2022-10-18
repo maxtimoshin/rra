@@ -6,7 +6,7 @@ import { useDispatch } from 'react-redux'
 import './style.css'
 import AOS from "aos";
 import "aos/dist/aos.css";
-import {IProductProps} from "./types"
+import { IProductProps, ICardProps } from "./types"
 
 
 const ProductItem = ({ item }: IProductProps) => {
@@ -16,7 +16,7 @@ const ProductItem = ({ item }: IProductProps) => {
     }, []);
 
     const dispatch = useDispatch()
-    const cartHandler = (id: number, title: string, price: number, image: string) => {
+    const cartHandler = ({ id, title, price, image }: ICardProps) => {
         dispatch(addToCart({
             "title": title,
             "id": id,
@@ -48,7 +48,7 @@ const ProductItem = ({ item }: IProductProps) => {
             <div className="item-price">
                 {item.price.toLocaleString("ru", { style: 'currency', currency: 'usd' })}
             </div>
-            <button className="add-to-cart-button" onClick={() => cartHandler(item.id, item.title, item.price, item.image)}>Add to Cart</button>
+            <button className="add-to-cart-button" onClick={() => cartHandler(item)}>Add to Cart</button>
         </li>
     )
 }
