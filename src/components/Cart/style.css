@@ -31,8 +31,10 @@
     position: absolute;
     width: 400px;
     border: none;
-    background-color: #fff;
-    left: -350px;
+    background-color: #E904C4;
+    border-radius: 3px;
+    top:40px;
+    left: -390px;
     display: flex;
     padding: 20px 10px;
     flex-direction: column;
@@ -44,13 +46,15 @@
     transition: all 0.3s;
     visibility: hidden;
     z-index: 1;
+    
 }
 
 .cart-bar.visible {
     transition: all 0.3s;
     height: auto;
     overflow: visible;
-    border: 1px solid rgb(229, 229, 229);
+    color:#fff;
+    border:1px solid #0F1139;
     opacity: 1;
     visibility: visible;
     /* display: flex;
@@ -99,7 +103,8 @@
 .cart-item {
     font-size: 0.8rem;
     height: 40px;
-    border: 1px solid rgb(172, 172, 172);
+    border-radius: 5px;
+    background:rgba(15, 17, 57, 0.5);
     padding: 10px;
     display: flex;
     align-items: center;
@@ -108,7 +113,7 @@
 }
 
 .cart-item:hover {
-    background-color: rgb(240, 240, 240);
+    background:#0F1139;
 }
 
 .product-title {
@@ -137,17 +142,18 @@
 }
 
 .cart-delete-button {
-    background-color: #fff;
-    border: 1px solid gray;
+    background-color: transparent;
+    border: 1px solid #fff;
     padding: 5px 10px;
     cursor: pointer;
+    color:#fff;
     transition: all 0.3s;
 }
 
 .cart-delete-button:hover {
-    background-color: #000;
+    background-color: #E904C4;
     color: #fff;
-    border: 1px solid #000;
+    border: 1px solid #fff;
 }
 
 .cart-nav {
@@ -160,7 +166,7 @@
 .clear-cart,
 .confirm-order {
     border: none;
-    background-color: #fff;
+    background-color: transparent;
     cursor: pointer;
 }
 
@@ -193,8 +199,16 @@
 }
 
 .item-counter button {
+    width:20px;
+    height: 20px;
     cursor: pointer;
-    border: 1px solid #000;
+    border: 1px solid #fff;
+    color:#fff;
     background-color: transparent;
     flex: 1;
+    transition: all 0.3s;
+}
+
+.item-counter button:hover {
+    background:#E904C4;
 }
