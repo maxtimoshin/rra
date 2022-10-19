@@ -44,4 +44,14 @@
 
 .filters {
     margin:20px 0;
+    display: flex;
+}
+
+.filters select {
+    align-self: flex-start;
+    border: none;
+    outline: none;
+    color:#FFF;
+    background:rgba(233, 4, 195, 0.5) ;
+    padding:5px 10px;
 }

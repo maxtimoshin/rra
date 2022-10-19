@@ -1,5 +1,11 @@
 .App {
   text-align: center;
-  margin:0;
-  padding:0;
+  margin: 0;
+  padding: 0;
+  background:#0F1139;
+}
+
+* {
+  font-family: 'Rubik', sans-serif;
+  font-weight: 300;
 }

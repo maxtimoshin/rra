@@ -13,14 +13,14 @@
 
 .cart-counter{
     font-size:10px;
-    color: #FFF;
+    color: #fff;
     content: "";
     position: absolute;
     right: -10px;
     top: -5px;
     width: 15px;
     height: 15px;
-    background: #000;
+    background: #E904C4;
     border-radius: 50%;
     display: flex;
     align-items: center;

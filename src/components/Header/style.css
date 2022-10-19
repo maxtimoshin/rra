@@ -1,55 +1,63 @@
 .header {
-    width:100%;
+    width: 100%;
     height: 100px;
-    background-color: rgb(246, 246, 246);
+    background: #0F1139;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    border-bottom: 2px solid #E904C4;
 }
 
 .logo {
-    margin-left:50px;
+    margin-left: 50px;
 }
 
 .cart {
-    margin-right:50px;
+    margin-right: 50px;
 }
 
 .nav ul,
 .login-nav {
     display: flex;
     list-style: none;
-    gap:20px;
+    gap: 20px;
 }
 
 .nav ul li a,
-.login-nav li a { 
+.login-nav li a {
     position: relative;
     text-decoration: none;
-    color:#000;
+    color: #FFF;
+    text-transform: uppercase;
 }
 
 .nav ul li a::before,
 .login-nav li a::before {
     position: absolute;
-    content:"";
+    content: "";
     height: 1px;
-    width:0%;
-    left:0;
-    bottom:-2px;
-    background-color: #000;
+    width: 0%;
+    left: 0;
+    bottom: -2px;
+    background-color: #E904C4;
     transition: all 0.3s;
+}
+
+.nav ul li a:hover,
+.login-nav li a:hover {
+    color: #E904C4;
 }
 
 .nav ul li a:hover::before,
 .login-nav li a:hover::before {
-    width:100%;
+    width: 100%;
+    color: #E904C4
 }
 
 .logo {
     background-image: url('../../assets/logo.svg');
-    background-position:center;
+    background-position: center;
     background-repeat: no-repeat;
-    width:50px;
+    width: 50px;
     height: 50px;
 }

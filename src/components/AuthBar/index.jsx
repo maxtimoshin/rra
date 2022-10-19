@@ -10,9 +10,9 @@ const AuthBar = () => {
     }
     return (
         <>
-            {isAuthenticated ? <div>
-                <h5>{user.name}</h5>
-                <button onClick={() => logout({ returnTo: window.location.origin })}>
+            {isAuthenticated ? <div className='auth-bar'>
+                <div className='user-name'>{user.name}</div>
+                <button className='log-out-button' onClick={() => logout({ returnTo: window.location.origin })}>
                     Log Out
                 </button>
             </div> : <div className="sign-in-button" onClick={() => loginWithRedirect()}>Sign In</div>
