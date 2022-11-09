@@ -228,3 +228,38 @@
     background: #fff;
     color: rgb(51, 51, 51);
 }
+
+.promo {
+    align-self: flex-end;
+    display: flex;
+}
+
+.promo input {
+    background: rgb(255, 255, 255, 0.5);
+    height: 40px;
+    border: none;
+    outline: none;
+    margin: 0;
+    padding: 0;
+    color: #fff;
+    width: 200px;
+    padding-left: 10px;
+}
+
+.promo input::placeholder {
+    color: #fff;
+}
+
+.promo-button {
+    border: none;
+    height: 40px;
+    cursor: pointer;
+    transition: all 0.3s;
+    background: #fff;
+    color: #1f1f1f;
+}
+
+.promo-button:hover {
+    color: #fff;
+    background: #1f1f1f;
+}

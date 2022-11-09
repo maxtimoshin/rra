@@ -43,6 +43,10 @@ const Cart = () => {
                             acc += item.price * item.quantity
                         ), 0).toLocaleString("ru", { style: 'currency', currency: 'usd' }) : 0}
                     </div>
+                    <div className="promo">
+                        <input type="number" placeholder='Enter your promo code here' />
+                        <button className='promo-button'>Confirm</button>
+                    </div>
                     <div className="cart-nav">
                         <button className='clear-cart' onClick={() => clearCartHandler()}>Clear Cart</button>
                         <button className='confirm-order'>Confirm Order</button>
