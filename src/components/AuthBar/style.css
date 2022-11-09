@@ -10,21 +10,21 @@
 }
 
 .user-name {
-    color: #fff;
+    color: rgb(51, 51, 51);
 }
 
 .sign-in-button,
 .log-out-button {
     background: none;
-    color:#fff;
-    border:2px solid #E904C4;
-    padding:5px 10px;
+    color: rgb(51, 51, 51);
+    border: 1px solid rgb(51, 51, 51);
+    padding: 5px 10px;
     border-radius: 5px;
     cursor: pointer;
-    transition:all 0.3s;
+    transition: all 0.3s;
 }
 
 .sign-in-button:hover,
 .log-out-button:hover {
-    background:#E904C4;
+    text-decoration: underline;
 }

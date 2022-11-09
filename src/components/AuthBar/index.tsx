@@ -11,7 +11,7 @@ const AuthBar = () => {
     return (
         <>
             {isAuthenticated ? <div className='auth-bar'>
-                <div className='user-name'>{user.name}</div>
+                <div className='user-name'>{user ? user.name : 'Loading...'}</div>
                 <button className='log-out-button' onClick={() => logout({ returnTo: window.location.origin })}>
                     Log Out
                 </button>

@@ -10,7 +10,7 @@ const Header: React.FC = () => {
     const { loginWithRedirect } = useAuth0()
     return (
         <div className="header">
-            <div className="logo"></div>
+            <Link to="/" className="logo"></Link>
             <nav className="nav">
                 <ul>
                     <li><Link to="/">Home</Link></li>

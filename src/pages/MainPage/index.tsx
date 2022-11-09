@@ -32,7 +32,6 @@ const MainPage = () => {
     return (
         <>
             <div className="main">
-                <div className="purple-shadow1"></div>
                 <div className="filters">
                     <select onChange={(e) => selectSortHandler(e.target.value)}>
                         <option value="desc">Price (expensive to cheap)</option>
@@ -51,7 +50,6 @@ const MainPage = () => {
                     </ul>
                 </div>
             </div>
-            <div className="footer"></div>
             <div>
             </div>
         </>

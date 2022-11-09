@@ -1,17 +1,22 @@
-import React, {FC} from 'react'
+import React, { FC, useState, useEffect } from 'react'
 import { useDispatch } from 'react-redux';
 import { deleteProductFromCart, addQuantity, decreaseQuantity } from '../../redux/Slices/cartSlice';
 import "./style.css"
 
-import {CartProps} from "./types"
+import { CartProps } from "./types"
 
 
 const CartItem: FC<CartProps> = ({ id, image, title, price, quantity }) => {
+    const [deleteAnimation, setDeleteAnimation] = useState(false)
+    useEffect(() => {
+
+    }, [])
     const dispatch = useDispatch()
     const deleteHandler = (id: number) => {
         dispatch(deleteProductFromCart(id))
     }
     const addCount = (id: number) => {
+        
         dispatch(addQuantity(id))
     }
 

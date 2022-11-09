@@ -4,14 +4,15 @@ import { clearCart } from '../../redux/Slices/cartSlice';
 import CartItem from '../CartItem';
 import './style.css'
 import EmptyCart from "../../assets/empty-cart.png"
+import { CartProps } from '../CartItem/types';
 
 const Cart = () => {
-    const cartProducts = useSelector((state) => state.cart.cartProducts)
+    const cartProducts = useSelector((state: any) => state.cart.cartProducts)
     const [cartIsOpen, cartToggler] = useState(false)
     const [cartCounter, setCartCounter] = useState()
 
     useEffect(() => {
-        setCartCounter(cartProducts.map(e => e.quantity).reduce((prev, product) => prev + product, 0))
+        setCartCounter(cartProducts.map((e: { quantity: any; }) => e.quantity).reduce((prev: any, product: any) => prev + product, 0))
     }, [cartProducts])
 
     const cartHandler = () => {
@@ -29,13 +30,16 @@ const Cart = () => {
                 <div className='cart-counter'>{cartCounter}</div>
                 <div className="cart-icon" onClick={() => { cartHandler() }}></div>
                 <div className={cartIsOpen ? 'cart-bar visible' : 'cart-bar hide-cart-bar'}>
-                    <ul className={cartProducts.length > 5 ? 'cart-items-list cart-scroll' : 'cart-items-list'}>
-                        {cartProducts.length !== 0 ?
-                            cartProducts.map((product) => <CartItem key={product.id} {...product} />) :
-                            <div className='empty-cart'><span>Your cart is empty</span><img src={EmptyCart} alt="" /></div>}
-                    </ul>
+
+                    {cartProducts.length !== 0 ?
+                        <ul className={cartProducts.length > 5 ? 'cart-items-list cart-scroll' : 'cart-items-list'}>
+                            {cartProducts.map((product: JSX.IntrinsicAttributes & CartProps) => <CartItem key={product.id} {...product} />)}
+                        </ul> :
+                        <div className='empty-cart'><span>Your cart is empty</span><img src={EmptyCart} alt="" /></div>
+                    }
+
                     <div className="cart-summ">
-                        Total : {cartProducts.length !== 0 ? cartProducts.reduce((acc, item) => (
+                        Total : {cartProducts.length !== 0 ? cartProducts.reduce((acc: number, item: { price: number; quantity: number; }) => (
                             acc += item.price * item.quantity
                         ), 0).toLocaleString("ru", { style: 'currency', currency: 'usd' }) : 0}
                     </div>

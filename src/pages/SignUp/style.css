@@ -18,11 +18,11 @@ form {
 }
 
 .input:focus {
-    border: 1px solid #000;
+    border: 1px solid rgb(51, 51, 51);
 }
 
 .input:hover {
-    border: 1px solid #000;
+    border: 1px solid rgb(51, 51, 51);
 }
 
 .submit-button {
@@ -31,11 +31,11 @@ form {
     border: 1px solid rgb(0, 0, 0, 0.3);
     transition: all 0.3s;
     cursor: pointer;
-    color: #000;
+    color: rgb(51, 51, 51);
 }
 
 .submit-button:hover {
-    background: #000;
+    background: rgb(51, 51, 51);
     color: #fff;
 }
 

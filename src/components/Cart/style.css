@@ -11,8 +11,8 @@
     height: 25px;
 }
 
-.cart-counter{
-    font-size:10px;
+.cart-counter {
+    font-size: 10px;
     color: #fff;
     content: "";
     position: absolute;
@@ -20,7 +20,7 @@
     top: -5px;
     width: 15px;
     height: 15px;
-    background: #E904C4;
+    background: rgb(51, 51, 51);
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -31,39 +31,53 @@
     position: absolute;
     width: 400px;
     border: none;
-    background-color: #E904C4;
-    border-radius: 3px;
-    top:40px;
+    background-color: rgb(51, 51, 51);
+    top: 40px;
     left: -390px;
     display: flex;
     padding: 20px 10px;
     flex-direction: column;
     align-items: center;
     gap: 20px;
-    height: 0;
-    overflow: hidden;
-    opacity: 0;
-    transition: all 0.3s;
-    visibility: hidden;
+    height: auto;
     z-index: 1;
-    
+    transition: all 0.3s;
 }
 
 .cart-bar.visible {
-    transition: all 0.3s;
-    height: auto;
-    overflow: visible;
-    color:#fff;
-    border:1px solid #0F1139;
-    opacity: 1;
+    color: #fff;
+    border: 1px solid #1f1f1f;
+    display: flex;
+    animation: show-up 0.3s;
     visibility: visible;
-    /* display: flex;
-    animation: cartpop 0.5s; */
-
+    transition: all 0.3s;
+    opacity: 1;
 }
 
-/* .hide-cart-bar {
+@keyframes show-up {
+    from {
+        transform: translateY(40px);
+    }
+
+    to {
+        transform: translateY(0px);
+    }
+}
+
+.hide-cart-bar {
     visibility: hidden;
+    /* animation: hide-up 0.3s; */
+    opacity: 0;
+}
+
+/* @keyframes hide-up {
+    from {
+        transform:  translateY(0);
+    }
+
+    to {
+        transform:  translateY(40px);
+    }
 } */
 
 /* @keyframes carthide {
@@ -103,17 +117,17 @@
 .cart-item {
     font-size: 0.8rem;
     height: 40px;
-    border-radius: 5px;
-    background:rgba(15, 17, 57, 0.5);
+    background: rgb(51, 51, 51);
     padding: 10px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     transition: all 0.3s;
+    border: 1px solid #fff;
 }
 
 .cart-item:hover {
-    background:#0F1139;
+    background: #1f1f1f;
 }
 
 .product-title {
@@ -146,13 +160,13 @@
     border: 1px solid #fff;
     padding: 5px 10px;
     cursor: pointer;
-    color:#fff;
+    color: #fff;
     transition: all 0.3s;
 }
 
 .cart-delete-button:hover {
-    background-color: #E904C4;
-    color: #fff;
+    background-color: #fff;
+    color: rgb(51, 51, 51);
     border: 1px solid #fff;
 }
 
@@ -172,6 +186,7 @@
 
 .clear-cart {
     text-decoration: underline;
+    color: #fff;
 }
 
 .clear-cart:hover {
@@ -180,15 +195,15 @@
 
 .confirm-order {
     padding: 5px 10px;
-    border: 1px solid #000;
-    background-color: #000;
+    border: 1px solid #fff;
+    background-color: rgb(51, 51, 51);
     color: #fff;
     transition: all 0.3s;
 }
 
 .confirm-order:hover {
     background-color: #fff;
-    color: #000;
+    color: rgb(51, 51, 51);
 }
 
 .item-counter {
@@ -199,16 +214,17 @@
 }
 
 .item-counter button {
-    width:20px;
+    width: 20px;
     height: 20px;
     cursor: pointer;
     border: 1px solid #fff;
-    color:#fff;
+    color: #fff;
     background-color: transparent;
     flex: 1;
     transition: all 0.3s;
 }
 
 .item-counter button:hover {
-    background:#E904C4;
+    background: #fff;
+    color: rgb(51, 51, 51);
 }

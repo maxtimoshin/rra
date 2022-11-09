@@ -35,7 +35,7 @@ const ProductItem = ({ item }: IProductProps) => {
             <Link to={`/products/${item.id}`} className="item-image-block">
                 {/* <img className='item-image' alt="item" src={item.image} /> */}
             </Link>
-            <div className="item-title">{item.title}</div>
+            <Link to={`/products/${item.id}`} className="item-title">{item.title}</Link>
             <div className="item-rating">
                 <ReactStars
                     count={5}
@@ -45,9 +45,9 @@ const ProductItem = ({ item }: IProductProps) => {
                     value={rating ? +rating : +item.rating.rate.toFixed(0)}
                 />
             </div>
-            <div className="item-price">
+            <Link to={`/products/${item.id}`} className="item-price">
                 {item.price.toLocaleString("ru", { style: 'currency', currency: 'usd' })}
-            </div>
+            </Link>
             <button className="add-to-cart-button" onClick={() => cartHandler(item)}>Add to Cart</button>
         </li>
     )
