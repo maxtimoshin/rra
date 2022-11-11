@@ -1,8 +1,9 @@
 .main {
-    width: 80%;
-    margin: 0 auto;
-    position: relative;
+    width: 100%;
+    display: flex;
 }
+
+.main-products-block {}
 
 .products {
     width: 100%;
@@ -46,6 +47,7 @@
 .filters {
     margin: 20px 0;
     display: flex;
+
 }
 
 .filters select {
@@ -53,6 +55,26 @@
     border: none;
     outline: none;
     color: #FFF;
+    cursor: pointer;
     background: rgb(51, 51, 51);
     padding: 5px 10px;
+}
+
+.filters select option:hover {
+    color: #515151;
+    background: #fff;
+}
+
+.main-filters-block {
+    min-width: 200px;
+    height: fit-content;
+    border: 1px solid #515151;
+    margin: 67px 20px 20px 20px;
+    padding: 20px;
+}
+
+.categories-list {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
 }

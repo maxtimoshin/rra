@@ -26,6 +26,8 @@ const ProductItem = ({ item }: IProductProps) => {
         }))
     }
 
+    
+
     const [rating, setRating] = useState()
     const ratingChanged = (newRating: React.SetStateAction<undefined>) => {
         setRating(newRating)
