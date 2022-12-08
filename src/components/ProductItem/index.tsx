@@ -7,9 +7,15 @@ import './style.css'
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { IProductProps, ICardProps } from "./types"
+import { useInView } from "react-intersection-observer";
 
 
 const ProductItem = ({ item }: IProductProps) => {
+
+    const { ref, inView } = useInView({
+        threshold: 0.5,
+        triggerOnce: true,
+    })
     useEffect(() => {
         AOS.init()
         AOS.refresh();
@@ -26,7 +32,8 @@ const ProductItem = ({ item }: IProductProps) => {
         }))
     }
 
-    
+
+
 
     const [rating, setRating] = useState()
     const ratingChanged = (newRating: React.SetStateAction<undefined>) => {
@@ -34,8 +41,8 @@ const ProductItem = ({ item }: IProductProps) => {
     }
     return (
         <li className="list-item" >
-            <Link to={`/products/${item.id}`} className="item-image-block">
-                {/* <img className='item-image' alt="item" src={item.image} /> */}
+            <Link ref={ref} to={`/products/${item.id}`} className="item-image-block">
+                {inView ? <img className='item-image' alt="item" src={item.image} /> : <div className="test-block"><div className="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div></div>}
             </Link>
             <Link to={`/products/${item.id}`} className="item-title">{item.title}</Link>
             <div className="item-rating">
