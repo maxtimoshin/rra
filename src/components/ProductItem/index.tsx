@@ -32,9 +32,6 @@ const ProductItem = ({ item }: IProductProps) => {
         }))
     }
 
-
-
-
     const [rating, setRating] = useState()
     const ratingChanged = (newRating: React.SetStateAction<undefined>) => {
         setRating(newRating)
@@ -42,7 +39,7 @@ const ProductItem = ({ item }: IProductProps) => {
     return (
         <li className="list-item" >
             <Link ref={ref} to={`/products/${item.id}`} className="item-image-block">
-                {inView ? <img className='item-image' alt="item" src={item.image} /> : <div className="test-block"><div className="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div></div>}
+                {/* {inView ? <img className='item-image' alt="item" src={item.image} /> : <div className="test-block"><div className="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div></div>} */}
             </Link>
             <Link to={`/products/${item.id}`} className="item-title">{item.title}</Link>
             <div className="item-rating">

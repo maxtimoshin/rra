@@ -1,17 +1,30 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useGetProductsQuery } from '../../redux/API/query';
 import ItemLoader from '../../components/ItemLoader';
 import './style.css'
 import ProductItem from '../../components/ProductItem';
-import { IFilters } from './types';
+import { IFilters, ICheckboxInputs } from './types';
+import { useSelector, useDispatch } from 'react-redux';
+import { setInputStatus } from '../../redux/Slices/inputsSlice';
+import Box from '@mui/material/Box';
+import Slider from '@mui/material/Slider';
+
+function valuetext(value: number) {
+    return `${value}°C`;
+}
 
 const MainPage = () => {
+
+    const [value, setValue] = React.useState<number[]>([0, 1000]);
+
+    const handleChange = (event: Event, newValue: number | number[]) => {
+        setValue(newValue as number[]);
+    };
+    const dispatch = useDispatch()
+    const inputs = useSelector((state: any) => state.inputs)
     const [sortType, setSortType] = useState('desc')
-    const [categories, setCategories] = useState([])
-    const [checked, setChecked] = useState(false)
 
     const { data, isLoading } = useGetProductsQuery([])
-
 
     const sortHandler = (a: IFilters, b: IFilters) => {
         switch (sortType) {
@@ -32,8 +45,8 @@ const MainPage = () => {
         setSortType(e)
     }
 
-    const checkboxHandler = (e: any) => {
-        setChecked(!checked)
+    const checkboxInputHandler = (e: ICheckboxInputs) => {
+        dispatch(setInputStatus(e))
     }
 
     return (
@@ -41,13 +54,22 @@ const MainPage = () => {
             <div className="main">
                 <div className="main-filters-block">
                     <div className="categories-list">
-                        <label><input type="checkbox" checked={checked} onChange={(e) => checkboxHandler(e)} name="Men's clothing" />Men's clothing</label>
-                        <label><input type="checkbox" checked={checked} onChange={(e) => checkboxHandler(e)} name="Women's clothing" />Women's clothing</label>
-                        <label><input type="checkbox" checked={checked} onChange={(e) => checkboxHandler(e)} name="Jewelery" />Jewelery</label>
-                        <label><input type="checkbox" checked={checked} onChange={(e) => checkboxHandler(e)} name="Electronics" />Electronics</label>
+                        {inputs.map((el: ICheckboxInputs) => <label key={el.id}><input onClick={() => checkboxInputHandler(el)} defaultChecked={el.isChecked} type="checkbox" name={el.title} />{el.title}</label>)}
+                        <Box sx={{ width: 150 }}>
+                            <Slider
+                                getAriaLabel={() => 'Temperature range'}
+                                value={value}
+                                onChange={handleChange}
+                                valueLabelDisplay="auto"
+                                getAriaValueText={valuetext}
+                                min={0}
+                                max={1000}
+                            />
+                        </Box>
                     </div>
                 </div>
                 <div className="main-products-block">
+
                     <div className="filters">
                         <select onChange={(e) => selectSortHandler(e.target.value)}>
                             <option value="desc">Price (expensive to cheap)</option>
@@ -55,12 +77,16 @@ const MainPage = () => {
                             <option value="rate-up">Rating (high to low)</option>
                             <option value="rate-down">Rating (low to high)</option>
                         </select>
+                        <div className="filter-tags">
+                            <div className="price-tag">{value[0]}$ - {value[1]}$</div>
+                            {inputs.filter((e: { isChecked: any; }) => e.isChecked).map((el: { title: string, id: number }) => <div className="category-tag" key={el.id}>{el.title}</div>)}
+                        </div>
                     </div>
                     <div className='products'>
                         <ul className="list-items">
                             {isLoading
                                 ? new Array(20).fill(0).map((_, id) => <ItemLoader key={id} />)
-                                : [...data].sort((a, b) => sortHandler(a, b)).map(item => (
+                                : [...data].filter(el => inputs.filter((e: { isChecked: any; }) => e.isChecked).map((e: { title: any; }) => e.title.toLowerCase()).includes(el.category) && el.price >= value[0] && el.price <= value[1]).sort((a, b) => sortHandler(a, b)).map(item => (
                                     <ProductItem item={item} key={item.id} />
                                 ))}
                         </ul>
